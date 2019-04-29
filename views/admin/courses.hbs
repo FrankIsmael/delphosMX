@@ -1,0 +1,25 @@
+<div>
+  <h2>Courses</h2>
+
+  <div id="courses">
+    {{#each courses as |courses| }}
+    <p>{{courses.name}}</p>
+    <a href="/admin/courses/delete/{{courses._id}}">
+      <button>Delete course</button>
+    </a>
+    {{/each}}
+  </div>
+
+  <div id="create-courses">
+    <form action="/admin/courses/create" method="POST">
+      <input type="text" name="name" />
+      <input type="text" name="description" />
+      <input type="text" name="costo" />
+      <input type="number" name="rating" min="1" max="5" />
+      <input type="number" name="fecha" />
+      <input type="number" name="duracion" />
+      <input type="submit" value="Create courses">
+    </form>
+  </div>
+
+</div>
