@@ -1,0 +1,23 @@
+<h2>{{courses.name}}</h2>
+<p>{{courses.description}}</p>
+<p>{{courses.costo}}</p>
+<p>{{courses.fecha}}</p>
+<p>{{courses.duracion}}</p>
+<p>{{courses.rating}}</p>
+
+
+
+
+<h2>Comments</h2>
+{{#each comments}}
+<p>{{this.createdAt}}</p>
+<p>{{this.owner.name}}</p>
+<p>{{this.body}}</p>
+{{/each}}
+
+{{#if loggedUser}}
+<form action="/artists/{{artist._id}}" method="POST">
+  <textarea name="comment" cols="30" rows="10"></textarea>
+  <input type="submit" value="Comment">
+</form>
+{{/if}}
