@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').load();
 
 const bodyParser   = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -62,9 +62,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
+const index = require('./routes/index')
 const auth = require('./routes/auth')
-const index = require('./routes/index');
-app.use('/', index);
+const admin = require('./routes/admin')
+app.use('/', index)
 app.use('/', auth)
+app.use('/', isLogged, isAdmin, admin)
+
 
 module.exports = app;
