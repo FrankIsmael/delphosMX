@@ -63,6 +63,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 const auth = require('./routes/auth')
+<<<<<<< HEAD
 const index=require ('./routes/index')
 const admin = ('./routes/admin')
 
@@ -71,6 +72,11 @@ const admin = ('./routes/admin')
 app.use('/', index);
 app.use('/',auth);
 app.use('/', isLogged, isAdmin, admin)
+=======
+const index = require('./routes/index');
+app.use('/', index);
+app.use('/', auth)
+>>>>>>> 47933aed7b599c9f2c0f91879a4cf0c987c0ddd8
 
 
 module.exports = app;

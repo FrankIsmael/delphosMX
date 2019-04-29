@@ -1,0 +1,50 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  font: 24px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00B7FF; }
+
+/*# sourceMappingURL=style.css.map */
+h1,h2,h3,h4,h5{
+  font-family: roboto condensed;
+}
+
+h1{
+  font-size: 9em;
+  text-align: center;
+  text-transform: uppercase;
+  color: #5271ff;
+}
+
+h2{
+  font-size: 5em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.header{
+  background-image: url('https://tallerdelphosmx.files.wordpress.com/2018/08/29792415_1712362125496271_889675563576886621_n.jpg?w=960&h=435&crop=1');
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 650px;
+  position: relative;
+  padding-top:50px;
+  color: white;
+}
+
+.h2-text{
+  color:white;
+  text-shadow: #020819 8px -20px 9px;
+  font-size: 2.5em;
+}
+
+.quote{
+  position: absolute;
+  left:10%;
+  bottom:15vh;
+}
