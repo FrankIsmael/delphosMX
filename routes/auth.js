@@ -3,6 +3,7 @@ const passport = require('../handlers/passport')
 const User = require('../models/User')
 const { isLogged } = require('../handlers/middlewares')
 
+router.get('/test',(req,res,next) => res.render('test'))
 router.get('/signup', (req, res, next) => res.render('auth/signup'))
 
 router.post('/signup', (req, res, next) => {
