@@ -11,7 +11,8 @@ a {
 h1 {
   font-size: 9em;
   text-align: center;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  color: #00B7FF; }
 
 .h2-text {
   color: white;
@@ -23,7 +24,8 @@ h1 {
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 650px;
+  height: 90vh;
+  width: 100vw;
   position: relative;
   padding-top: 50px; }
 
