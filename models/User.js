@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema(
     photoURL: String,
     role: {
       type: String,
-      enum: ['ADMIN', 'USER'],
+      enum: ['ADMIN', 'TEACHER','USER'],
       default: 'USER'
     }
   },

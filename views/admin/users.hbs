@@ -3,4 +3,16 @@
 {{#each users}}
 <p>{{this.name}}</p>
 <p>{{this.email}}</p>
+<a href="/admin/users/delete/{{this._id}}">
+      <button>Delete User</button>
 {{/each}}
+
+<div id="create-users">
+    <form action="/admin/users/create" method="POST">
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="string" name="photoURL" />
+      <input type="string" name="role" />
+      <input type="submit" value="Create User">
+    </form>
+  </div>
