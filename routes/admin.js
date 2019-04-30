@@ -27,7 +27,7 @@ router.get('/admin/courses/delete/:id', (req, res, next) => {
 })
 
 router.get('/admin/users', (req, res, next) => {
-  User.find()
+  User.find({role: {$ne: "ADMIN"}})
     .then(users => {
       res.render('admin/users', { users })
     })

@@ -1,12 +1,16 @@
 <h2>Users</h2>
 
 {{#each users}}
+
 <p>{{this.name}}</p>
 <p>{{this.email}}</p>
+
 <a href="/admin/users/delete/{{this._id}}">
       <button>Delete User</button>
+      </a>
+  
 {{/each}}
-
+<hr>
 <div id="create-users">
     <form action="/admin/users/create" method="POST">
       <input type="text" name="name" />
