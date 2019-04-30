@@ -7,6 +7,7 @@ router.get('/test',(req,res,next) => res.render('test'))
 router.get('/signup', (req, res, next) => res.render('auth/signup'))
 
 router.post('/signup', (req, res, next) => {
+  console.log({ ...req.body })
   User.register({ ...req.body }, req.body.password)
     .then(() => {
       res.redirect('/login')
