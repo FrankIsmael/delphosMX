@@ -12,8 +12,6 @@ const coursesSchema= new mongoose.Schema({
         min:1,
         max:5
     }
-
-
 },
 {
     timestamps: true,

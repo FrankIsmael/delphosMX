@@ -3,8 +3,11 @@
   margin:0px;
   padding: 0px;
 }
+html{
+  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
 body {
-  font: 24px "Lucida Grande", Helvetica, Arial, sans-serif;
+  
 }
 
 a {
@@ -12,7 +15,7 @@ a {
 }
 
 h1{
-  font-size: 9em;
+  font-size: 9rem;
   text-align: center;
   text-transform: uppercase;
   color: #00B7FF;
@@ -21,7 +24,7 @@ h1{
 .h2-text{
   color:white;
   text-shadow: #020819 8px -20px 9px;
-  font-size: 2.5em;
+  font-size: 2.5rem;
 }
 
 .header{
@@ -32,5 +35,11 @@ h1{
   height: 95vh;
   width: 100vw;
   position: relative;
-  padding-top:50px;
+  padding-top:0px;
+}
+
+@media (max-width:1000px){
+  html{
+    font: 10px "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
 }
