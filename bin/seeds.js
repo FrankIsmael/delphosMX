@@ -1,3 +1,4 @@
+require('dotenv').load();
 const mongoose = require('mongoose')
 const User = require('../models/User')
 
@@ -7,6 +8,6 @@ const users = {
   role: 'ADMIN'
 }
 
-mongoose.connect('mongodb://localhost/delphosmx')
+mongoose.connect(process.env.DB)
 .then(() => User.register(users, 'admin'))
 .catch(err => console.log(err))

@@ -16,7 +16,7 @@ const { isAdmin, isLogged } = require('./handlers/middlewares')
 
 
 mongoose
-  .connect('mongodb://localhost/delphosmx', {useNewUrlParser: true})
+  .connect(process.env.DB, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
