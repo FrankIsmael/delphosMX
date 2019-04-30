@@ -4,8 +4,8 @@ const coursesSchema= new mongoose.Schema({
     name: String,
     description:String,
     costo: Number,
-    image: '',
-    fecha:Number,
+    imageURL: String,
+    fecha:Date,
     duration:Number,
     rating:{
         type:Number,
