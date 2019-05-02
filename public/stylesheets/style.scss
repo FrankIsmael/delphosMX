@@ -6,9 +6,8 @@
 html{
   font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-body {
-  
-}
+
+
 
 a {
   color: #00B7FF;
@@ -37,6 +36,15 @@ h1{
   position: relative;
   padding-top:0px;
 }
+
+
+
+#fondo-pagina{
+  background-color: aqua;
+}
+
+
+
 
 @media (max-width:1000px){
   html{

@@ -29,6 +29,9 @@ h1 {
   position: relative;
   padding-top: 0px; }
 
+#fondo-pagina {
+  background-color: aqua; }
+
 @media (max-width: 1000px) {
   html {
     font: 10px "Lucida Grande", Helvetica, Arial, sans-serif; } }

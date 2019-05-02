@@ -18,8 +18,9 @@ router.get('/courses/all', (req, res, next) => {
 router.get('/courses/:id', (req, res, next) => {
   const { id } = req.params
   Courses.findById(id)
-    .then(course => {
+    .then(course => { console.log(course)
       res.render('courses/detail', course)
+
     })
     .catch(err => next(err))
 })
