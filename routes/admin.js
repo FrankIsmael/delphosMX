@@ -2,6 +2,7 @@ const router = require('express').Router()
 const Courses = require('../models/Courses')
 const User = require('../models/User')
 
+
 router.get('/admin', (req, res, next) => res.render('admin/profile'))
 
 router.get('/admin/courses', (req, res, next) => {
@@ -35,7 +36,7 @@ router.get('/admin/users', (req, res, next) => {
 })
 
 router.post('/admin/users/create',(req,res,next) => {
-  User.create({...req.body})
+  User.register({...req.body},req.body.password)
   .then(() => res.redirect('/admin/users'))
   .catch(err => next(err))
 })
@@ -46,5 +47,7 @@ router.get('/admin/users/delete/:id',(req,res,next) => {
   .then(() => res.redirect('/admin/users'))
     .catch(err => next(err))
 })
+
+
 
 module.exports = router
