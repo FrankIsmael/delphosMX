@@ -6,8 +6,8 @@ router.get('/', (req, res, next) => {
   res.render('index')
 })
 
-router.get('/courses', (req, res, next) => {
-Courses.find()
+router.get('/courses/all', (req, res, next) => {
+  Courses.find()
     .sort({ rating: -1 })
     .then(courses => {
       res.render('courses/all', { courses })
@@ -17,18 +17,12 @@ Courses.find()
 
 router.get('/courses/:id', (req, res, next) => {
   const { id } = req.params
-  const findCourses = Courses.findById(id)
-  
-  Promise.all(findCourses)
-    .then(response => {
-      res.render('courses/detail', {
-        courses: response[0],
-        comments: response[1]
-      })
+  Courses.findById(id)
+    .then(course => {
+      res.render('courses/detail', course)
     })
     .catch(err => next(err))
 })
-
 
 
 module.exports = router

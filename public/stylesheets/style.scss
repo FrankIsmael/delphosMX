@@ -1,10 +1,53 @@
-body {
-  padding: 50px;
-  background-color: #00B7FF;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+*{
+  margin:0px;
+  padding: 0px;
 }
+html{
+  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+
 
 a {
   color: #00B7FF;
 }
 
+h1{
+  font-size: 9rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: #00B7FF;
+}
+
+.h2-text{
+  color:white;
+  text-shadow: #020819 8px -20px 9px;
+  font-size: 2.5rem;
+}
+
+.header{
+  background-image: url('../images/portada.jpg');
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 95vh;
+  width: 100vw;
+  position: relative;
+  padding-top:0px;
+}
+
+
+
+#fondo-pagina{
+  background-color: aqua;
+}
+
+
+
+
+@media (max-width:1000px){
+  html{
+    font: 10px "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+}

@@ -1,11 +1,13 @@
 const router = require('express').Router()
 const passport = require('../handlers/passport')
 const User = require('../models/User')
-const { isLogged } = require('../handlers/middlewares')
+const { isLogged ,isTeacher} = require('../handlers/middlewares')
 
+router.get('/test',(req,res,next) => res.render('test'))
 router.get('/signup', (req, res, next) => res.render('auth/signup'))
 
 router.post('/signup', (req, res, next) => {
+  console.log({ ...req.body })
   User.register({ ...req.body }, req.body.password)
     .then(() => {
       res.redirect('/login')
@@ -25,6 +27,7 @@ router.post('/login', (req, res, next) => {
       req.app.locals.loggedUser = user
       if (req.user.role === 'ADMIN') return res.redirect('/admin')
       else if (req.user.role === 'USER') return res.redirect('/profile')
+      else if (req.user.role === 'TEACHER')  return res.redirect(`/teacher/${req.user._id}`)
     })
   })(req, res, next)
 })

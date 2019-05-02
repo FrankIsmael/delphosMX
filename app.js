@@ -10,13 +10,13 @@ const logger       = require('morgan');
 const path         = require('path');
 const passport = require('./handlers/passport')
 const session = require('express-session')
-const { isAdmin, isLogged } = require('./handlers/middlewares')
+const { isAdmin, isLogged,isTeacher} = require('./handlers/middlewares')
 
 
 
 
 mongoose
-  .connect('mongodb://localhost/delphosmx', {useNewUrlParser: true})
+  .connect(process.env.DB, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -65,9 +65,13 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 const index = require('./routes/index')
 const auth = require('./routes/auth')
 const admin = require('./routes/admin')
+const teacher = require('./routes/teacher')
 app.use('/', index)
 app.use('/', auth)
-app.use('/', isLogged, isAdmin, admin)
+app.use('/teacher', isLogged,isTeacher, teacher)
+app.use('/', isLogged,isAdmin, admin)
+
+
 
 
 module.exports = app;

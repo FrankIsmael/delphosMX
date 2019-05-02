@@ -1,8 +1,20 @@
-<h2>Courses</h2>
-
-{{#each courses}}
-<br>
-<a href="/courses/{{this._id}}">
-  <p>{{this.name}}</p>
-</a>
-{{/each}}
+<div class="row">
+  {{#each courses}}
+  <div class="d-flex flex-row card mb-5 col-sm-6">
+    <a href="/courses/{{this._id}}" style="text-decoration:none;">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="{{this.imageURL}}" class="card-img" alt="{{this.name}}">
+        </div>
+        <div class="col-md-8 bg-info">
+          <div class="card-body">
+            <h5 class="card-title">{{this.name}}</h5>
+            <p class="card-text">{{this.rating}} ⭐️ </p>
+            <p class="card-text"><small class="text-muted">Last updated 1 week ago</small></p>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+  {{/each}}
+</div>
