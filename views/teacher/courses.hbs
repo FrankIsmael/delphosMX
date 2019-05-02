@@ -1,0 +1,32 @@
+<h2>Courses</h2>
+
+<div id="courses">
+  <h3>Info</h3>
+  <hr>
+  {{#each courses as |course| }}
+  <p>{{course.owner.name}}</p>
+  <p>{{course.name}}</p>
+{{/each}}
+
+
+  <div id="create-courses">
+    <form action='/teacher/{{courses.[0].owner._id}}/courses/create' method="POST">
+      <label>Title:</label>
+      <input type="text" name="name" /> <br>
+      <label>Description:</label>
+      <input type="text" name="description" /> <br>
+      <label>Costo:</label>
+      <input type="text" name="costo" /> <br>
+      <label>imageURL:</label>
+      <input type="text" name="imageURL" /> <br>
+      <label>Fecha:</label>
+      <input type="date" name="fecha" /> <br>
+      <label>Duration:</label>
+      <input type="number" name="duration" /> <br>
+      <label>Ratign:</label>
+      <input type="number" name="rating" min="1" max="5" /> <br>
+      <input type="submit" value="Create Course">
+    </form>
+  </div>
+</div>
+</div>

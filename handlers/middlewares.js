@@ -11,3 +11,12 @@ exports.isLogged = (req, res, next) => {
       next()
     }
   }
+
+  exports.isTeacher = (req,res,next) => {
+    if (req.user.role !== 'TEACHER') {
+      req.logOut()
+      res.redirect('/login')
+    } else {
+      next()
+    }
+  }
