@@ -2,21 +2,38 @@
 
 <div id="courses">
   <h3>Info</h3>
-  <hr>
-  {{#each courses as |course| }}
-  <p>{{course.owner.name}}</p>
-  <p>{{course.name}}</p>
-{{/each}}
+
+  <div class="row">
+
+    {{#each courses}}
+    <div class="d-flex flex-row card mb-5 col-sm-6">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <a href="/courses/{{this._id}}">
+            <img src="{{this.imageURL}}" class="card-img" alt="{{this.name}}">
+          </a>
+        </div>
+        <div class="col-md-8 bg-info">
+          <div class="card-body">
+            <h5 class="card-title">{{this.name}}</h5>
+            <p class="card-text">{{this.rating}} ⭐️ </p>
+            <p class="card-text"><small class="text-muted">Last updated 1 week ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
 
 
   <div id="create-courses">
-    <form action='/teacher/{{courses.[0].owner._id}}/courses/create' method="POST">
+    <form action='/teacher/{{id}}/courses/create' method="POST">
       <label>Title:</label>
       <input type="text" name="name" /> <br>
       <label>Description:</label>
       <input type="text" name="description" /> <br>
       <label>Costo:</label>
-      <input type="text" name="costo" /> <br>
+      <input type="number" name="costo" /> <br>
       <label>imageURL:</label>
       <input type="text" name="imageURL" /> <br>
       <label>Fecha:</label>
@@ -24,7 +41,7 @@
       <label>Duration:</label>
       <input type="number" name="duration" /> <br>
       <label>Ratign:</label>
-      <input type="number" name="rating" min="1" max="5" /> <br>
+      <input type="number" name="rating" /> <br>
       <input type="submit" value="Create Course">
     </form>
   </div>

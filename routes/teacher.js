@@ -6,21 +6,22 @@ router.get('/:id', isLogged, isTeacher, (req, res, next) => res.render('teacher/
 
 
 
+
 router.get(`/:id/courses`, (req, res, next) => {
   const { id } = req.params
   Courses.find({ owner: id })
     .populate('owner')
     .then(courses => {
-      console.log(id)
-      console.log(courses)
       res.render('teacher/courses', { courses,id })
     })
     .catch(err => next(err))
 })
 
 router.post('/:id/courses/create', (req, res, next) => {
-  console.log(req.user)
-  Courses.create({ 
+  console.log('AQUI')
+  const {id} = req.params
+  console.log(id)
+   Courses.create({ 
     owner: req.user._id,
     name: req.body.name,
     description:req.body.description,
@@ -28,9 +29,9 @@ router.post('/:id/courses/create', (req, res, next) => {
     imageURL: req.body.imageURL,
     fecha:req.body.fecha,
     duration:req.body.duration,
-    rating:req.body.duration
+    rating:req.body.rating
    })
-    .then(() => res.redirect('teacher/courses'))
+    .then(() => res.redirect(`/teacher/${id}/courses`))
     .catch(err => next(err))
 })
 
