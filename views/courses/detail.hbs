@@ -1,42 +1,28 @@
+<div class="row">
+  <div class="col-md-12">
+    <img src="{{this.imageURL}}" class="card-img" alt="{{this.name}}">
+  </div>
+</div>
 
 
- <div class="row">
-    <div class="col-md-12">
-      <img src="{{this.imageURL}}" class="card-img" alt="{{this.name}}">
-    </div>
- </div> 
-    
-    
-    <div class="row"> 
-      <div class="col-md-4"> 
-        <h5 class="card-title">{{this.name}}</h5>
-        <p class="card-text">{{this.rating}}</p>
-      </div>
-    
-    
-    
-      <div class="col-md-4">
-        <p class="card-text">{{this.description}}</p>
-        <p class="card-text">{{this.costo}}</p>
-      </div>
-    
-
-    
-      <div class="col-md-4">
-        <p class="card-text">{{this.fecha}}</p>
-        <p class="card-text">{{this.duration}}</p>
-        <p class="card-text"><small class="text-muted">Last updated {{this.timestamps}}</small></p>
-      </div>
-    </div>
+<div class="row">
+  <div class="col-md-4">
+    <h5 class="card-title">{{this.name}}</h5>
+    <p class="card-text">{{this.rating}}⭐️</p>
+  </div>
 
 
+  {{#if loggedUser}}
+  <div class="col-md-4">
+    <p class="card-text">{{this.description}}</p>
+    <p class="card-text">{{this.costo}}</p>
+  </div>
 
-
-<!--{{#if loggedUser}}
-<form action="/artists/{{artist._id}}" method="POST">
-  <textarea name="comment" cols="30" rows="10"></textarea>
-  <input type="submit" value="Comment">
-</form>
-{{/if}}-!>
-
+  <div class="col-md-4">
+    <p class="card-text">{{this.fecha}}</p>
+    <p class="card-text">{{this.duration}}</p>
+    <p class="card-text"><small class="text-muted">Last updated {{this.timestamps}}</small></p>
+  </div>
+  {{/if}}
+</div>
 
