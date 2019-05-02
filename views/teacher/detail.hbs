@@ -1,0 +1,35 @@
+
+<h1>{{this.owner.name}}</h1>
+<a href="/logout">Logout</a>
+<h2>{{this.name}}</h2>
+<h1>{{this.course.[0].owner.name}}</h1>
+<div class="row">
+  <div class="col-md-12">
+    <img src="{{this.imageURL}}" class="card-img" alt="{{this.name}}">
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-4">
+    <h5 class="card-title">{{this.name}}</h5>
+    <p class="card-text">{{this.rating}}⭐️</p>
+  </div>
+
+
+  <div class="col-md-4">
+    <p class="card-text">{{this.description}}</p>
+    <p class="card-text">{{this.costo}}</p>
+  </div>
+
+  <div class="col-md-4">
+    <p class="card-text">{{this.fecha}}</p>
+    <p class="card-text">{{this.duration}}</p>
+    <p class="card-text"><small class="text-muted">Last updated {{this.timestamps}}</small></p>
+  </div>
+</div>
+<a href="/places/{{_id}}/edit">
+  Edit
+</a> 
+  {{#if loggedUser}}
+  {{/if}}

@@ -68,7 +68,7 @@ const admin = require('./routes/admin')
 const teacher = require('./routes/teacher')
 app.use('/', index)
 app.use('/', auth)
-app.use('/teacher', isLogged, isTeacher, teacher)
+app.use('/teacher', isLogged,isTeacher, teacher)
 app.use('/', isLogged,isAdmin, admin)
 
 

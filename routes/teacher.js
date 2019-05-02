@@ -1,13 +1,19 @@
 const router = require('express').Router()
 const Courses = require('../models/Courses')
-const { isLogged, isTeacher } = require('../handlers/middlewares')
+const { isAdmin, isLogged,isTeacher} = require('../handlers/middlewares')
 
-router.get('/:id', isLogged, isTeacher, (req, res, next) => res.render('teacher/profile'))
+router.get('/:id',(req, res, next) => {
+  const { id } = req.params
+  Courses.find({ owner: id })
+    .populate('owner')
+    .then(courses => {
+      res.render('teacher/profile', { courses,id })
+    })
+    .catch(err => next(err))
+})
 
 
-
-
-router.get(`/:id/courses`, (req, res, next) => {
+/* router.get(`/:id/courses`, (req, res, next) => {
   const { id } = req.params
   Courses.find({ owner: id })
     .populate('owner')
@@ -15,7 +21,7 @@ router.get(`/:id/courses`, (req, res, next) => {
       res.render('teacher/courses', { courses,id })
     })
     .catch(err => next(err))
-})
+}) */
 
 router.post('/:id/courses/create', (req, res, next) => {
   console.log('AQUI')
@@ -31,57 +37,37 @@ router.post('/:id/courses/create', (req, res, next) => {
     duration:req.body.duration,
     rating:req.body.rating
    })
-    .then(() => res.redirect(`/teacher/${id}/courses`))
+    .then(() => res.redirect(`/${id}`))
     .catch(err => next(err))
 })
 
+router.get(`/:id/courses/:idc`, (req, res, next) => {
+  const { id,idc } = req.params
+  Courses.find({ owner: id , _id:idc})
+    .populate('owner')
+    .then(course => {
+      res.render('teacher/detail', course[0])
+    })
+    .catch(err => next(err))
+})
 
 module.exports = router
 
-/* router.post('/artists/:id', (req, res, next) => {
-  console.log(req.user)
-  Comment.create({
-    owner: req.user._id,
-    artist: req.params.id,
-    body: req.body.comment
+/* router.get('/places/new',(req,res,next) => {
+  const config = {
+    action: '/places/new',
+    place:{},
+    button: 'Create'
+  }
+  res.render('new',config)
+})
+
+router.post('/places/new', (req,res,next) => {
+  Place.create({...req.body})
+  .then(place => {
+    res.redirect(`/places/${place._id}`)
   })
-    .then(() => res.redirect(`/artists/${req.params.id}`))
-    .catch(err => next(err))
-})
-
-router.get('/artists/:id', (req, res, next) => {
-  const { id } = req.params
-  const findArtists = Artist.findById(id)
-  const findComments = Comment.find({ artist: id })
-    .sort({ createdAt: -1 })
-    .populate('owner')
-  Promise.all([findArtists, findComments])
-    .then(response => {
-      res.render('artists/detail', {
-        artist: response[0],
-        comments: response[1]
-      })
-    })
-    .catch(err => next(err))
-})
-
-router.post('/artists/:id', (req, res, next) => {
-  console.log(req.user)
-  Comment.create({
-    owner: req.user._id,
-    artist: req.params.id,
-    body: req.body.comment
+  .catch(err => {
+    res.send(err)
   })
-    .then(() => res.redirect(`/artists/${req.params.id}`))
-    .catch(err => next(err))
-})
-
-router.get('/admin/comments', (req, res, next) => {
-  Comment.find()
-    .populate('owner')
-    .populate('artist')
-    .then(comments => {
-      res.render('admin/comments', { comments })
-    })
-    .catch(err => next(err))
 }) */

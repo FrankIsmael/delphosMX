@@ -8,6 +8,7 @@ router.get('/admin', (req, res, next) => res.render('admin/profile'))
 router.get('/admin/courses', (req, res, next) => {
   Courses.find()
     .sort({ createdAt: -1 })
+    .populate('owner')
     .then(courses => {
       res.render('admin/courses', { courses })
     })

@@ -3,9 +3,10 @@
   <h2>Courses</h2>
 
   <div class="courses">
-    {{#each courses as |courses| }}
-    <p>{{courses.name}}</p>
-    <a href="/admin/courses/delete/{{courses._id}}">
+    {{#each courses as |course| }}
+    <p>{{course.owner.name}}</p>
+    <p>{{course.name}}</p>
+    <a href="/admin/courses/delete/{{course._id}}">
       <button>Delete course</button>
     </a>
     {{/each}}
