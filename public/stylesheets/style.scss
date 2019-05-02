@@ -46,6 +46,41 @@ h1{
 
 
 
+
+.footer{
+  background-color:black;
+  text-align: left;
+  font-size: 1.9em;
+  padding-left:50px;
+  padding-right:100px;
+  margin-bottom:25px;
+}
+
+.link-li{
+  list-style-type: none;
+}
+
+.adress{
+  font-style: normal;
+  font-size: 0.8em;
+  margin-bottom:30px;
+}
+.col-6{
+  width:30%;
+} 
+
+.map-frame{
+  position:relative;
+  top:20px;
+
+  height:375px;
+  right:20px;
+  width:60%;
+}   
+
+
+
+
 @media (max-width:1000px){
   html{
     font: 10px "Lucida Grande", Helvetica, Arial, sans-serif;
