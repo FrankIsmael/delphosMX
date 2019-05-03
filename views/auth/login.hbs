@@ -1,13 +1,27 @@
-<div id="login">
+{{!-- <div id="login">
   <h2>Log in</h2>
 
   <form action="/login" method="POST">
     <input type="email" name="email" />
     <input type="password" name="password">
     <input type="submit" value="Log in">
-  </form>
-  
-  
+  </form> --}}
 
 
-
+  <body>
+    <div class="login-form">
+      <form action="/login" method="POST">
+        <h2 class="text-center">Log in</h2>
+        <div class="form-group">
+          <input type="email" class="form-control" name="email" placeholder="Email" required="required">
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block">Log in</button>
+        </div>
+      </form>
+      <p class="text-center"><a href="/signup">Sign Up</a></p>
+    </div>
+  </body>
