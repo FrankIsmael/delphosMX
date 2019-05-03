@@ -5,7 +5,7 @@ const User = require('../models/User')
 const user = {
   name: 'IFM',
   email: 'ifm@ifm.com',
-  role: 'ADMIN'
+  role: 'admin'
 }
 
 mongoose.connect(process.env.DB)

@@ -9,7 +9,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="/stylesheets/style.css" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
@@ -27,31 +28,32 @@
         <li class="nav-item active">
           <a class="nav-link" href="/test">Mission <span class="sr-only">(current)</span></a>
         </li>
-         <li class="nav-item active">
+        <li class="nav-item active">
           <a class="nav-link" href="/courses/all">Courses <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="#">Events</a>
+          <a class="nav-link" href="">Events</a>
         </li>
-        
+        {{#if loggedUser}}
+        <li class="nav-item active">
+          <a class="nav-link" href="/{{loggedUser.role}}/{{loggedUser._id}}/profile">Profile</a>
+        </li>
+        {{/if}}
       </ul>
-
       <div class="form-inline my-2 my-lg-0">
+      {{#unless loggedUser }}
         <a class="btn btn-dark mr-sm-2" style="background:#00B7FF" href="/signup" role="button">Signup</a>
         <a class="btn btn-dark mr-sm-2" style="background:#00B7FF" href="/login" role="button">Login</a>
+      {{/unless}}
+      {{#if loggedUser}}
+        <a class="btn btn-dark mr-sm-2" style="background:#00B7FF" href="/logout" role="button">Logout</a>
+        {{/if}}
       </div>
-
-
 
     </div>
   </nav>
-
- {{{body}}}
-
-
-
-
-
+  
+  {{{body}}}
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

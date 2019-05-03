@@ -10,6 +10,7 @@ router.post('/signup', (req, res, next) => {
   console.log({ ...req.body })
   User.register({ ...req.body }, req.body.password)
     .then(() => {
+      
       res.redirect('/login')
     
     })
@@ -25,9 +26,9 @@ router.post('/login', (req, res, next) => {
     req.logIn(user, err => {
       if (err) return next(err)
       req.app.locals.loggedUser = user
-      if (req.user.role === 'ADMIN') return res.redirect('/admin')
-      else if (req.user.role === 'USER') return res.redirect('/profile')
-      else if (req.user.role === 'TEACHER')  return res.redirect(`/teacher/${req.user._id}`)
+      if (req.user.role === 'admin') return res.redirect(`/admin/${req.user._id}/profile`)
+      else if (req.user.role === 'user') return res.redirect(`/user/${req.user._id}/profile`)
+      else if (req.user.role === 'teacher')  return res.redirect(`/teacher/${req.user._id}/profile`)
     })
   })(req, res, next)
 })
@@ -35,10 +36,21 @@ router.post('/login', (req, res, next) => {
 router.get('/logout', (req, res, next) => {
   req.app.locals.loggedUser = ''
   req.logOut()
-  res.redirect('/login')
+  res.redirect('/')
 })
 
-router.get('/profile', isLogged, (req, res, next) => res.render('auth/profile'))
+router.get(`/user/:id/profile`, isLogged, (req, res, next) => {
+  const { id } = req.params
+  User.find({_id: id})
+  .populate('courses')
+  .then(user => {
+    console.log(user)
+    res.render('auth/profile', user[0])
+  })
+  .catch(err => next(err))
+  
+})
+  
 
 module.exports = router
 

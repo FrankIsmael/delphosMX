@@ -3,7 +3,7 @@ const Courses = require('../models/Courses')
 const User = require('../models/User')
 
 
-router.get('/admin', (req, res, next) => res.render('admin/profile'))
+router.get('/admin/:id/profile', (req, res, next) => res.render('admin/profile'))
 
 router.get('/admin/courses', (req, res, next) => {
   Courses.find()
@@ -29,23 +29,23 @@ router.get('/admin/courses/delete/:id', (req, res, next) => {
 })
 
 router.get('/admin/users', (req, res, next) => {
-  User.find({role: {$ne: "ADMIN"}})
+  User.find({ role: { $ne: "admin" } })
     .then(users => {
       res.render('admin/users', { users })
     })
     .catch(err => next(err))
 })
 
-router.post('/admin/users/create',(req,res,next) => {
-  User.register({...req.body},req.body.password)
-  .then(() => res.redirect('/admin/users'))
-  .catch(err => next(err))
+router.post('/admin/users/create', (req, res, next) => {
+  User.register({ ...req.body }, req.body.password)
+    .then(() => res.redirect('/admin/users'))
+    .catch(err => next(err))
 })
 
-router.get('/admin/users/delete/:id',(req,res,next) => {
-  const {id} = req.params
+router.get('/admin/users/delete/:id', (req, res, next) => {
+  const { id } = req.params
   User.findByIdAndDelete(id)
-  .then(() => res.redirect('/admin/users'))
+    .then(() => res.redirect('/admin/users'))
     .catch(err => next(err))
 })
 

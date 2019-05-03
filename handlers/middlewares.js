@@ -4,7 +4,7 @@ exports.isLogged = (req, res, next) => {
   }
   
   exports.isAdmin = (req, res, next) => {
-    if (req.user.role !== 'ADMIN') {
+    if (req.user.role !== 'admin') {
       req.logOut()
       res.redirect('/login')
     } else {
@@ -13,7 +13,7 @@ exports.isLogged = (req, res, next) => {
   }
 
   exports.isTeacher = (req,res,next) => {
-    if (req.user.role !== 'TEACHER') {
+    if (req.user.role !== 'teacher') {
       req.logOut()
       res.redirect('/login')
     } 
