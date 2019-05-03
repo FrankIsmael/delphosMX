@@ -2,7 +2,7 @@ const router = require('express').Router()
 const Courses = require('../models/Courses')
 const { isAdmin, isLogged,isTeacher} = require('../handlers/middlewares')
 
-router.get('/:id',(req, res, next) => {
+router.get('/:id/profile',(req, res, next) => {
   const { id } = req.params
   Courses.find({ owner: id })
     .populate('owner')
@@ -46,6 +46,7 @@ router.get(`/:id/courses/:idc`, (req, res, next) => {
   Courses.find({ owner: id , _id:idc})
     .populate('owner')
     .then(course => {
+      console.log(course)
       res.render('teacher/detail', course[0])
     })
     .catch(err => next(err))

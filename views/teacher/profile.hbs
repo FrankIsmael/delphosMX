@@ -1,6 +1,5 @@
 <div>
   <h2>Welcome home TEACHER {{loggedUser.name}}</h2>
-  <a href="/logout">Logout</a>
 </div>
 
 <h2>Courses</h2>
@@ -13,7 +12,7 @@
     <div class="d-flex flex-row card mb-5 col-sm-6">
       <div class="row no-gutters">
         <div class="col-md-4">
-          <a href="{{this.owner._id}}/courses/{{this._id}}">
+          <a href="/{{this.owner.role}}/{{this.owner._id}}/courses/{{this._id}}">
             <img src="{{this.imageURL}}" class="card-img" alt="{{this.name}}">
           </a>
         </div>
