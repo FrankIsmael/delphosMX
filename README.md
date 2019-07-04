@@ -1,4 +1,4 @@
-# DelphosMX ## Taller Experimental de Arte y Tecnología 
+# DelphosMX *Taller Experimental de Arte y Tecnología*
 <img src="https://github.com/FrankIsmael/delphosMX/blob/master/public/images/portada.jpg" alt="img" width="500">
 
 
