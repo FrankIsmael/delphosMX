@@ -1,7 +1,6 @@
 # DelphosMX
 <img src="https://github.com/FrankIsmael/delphosMX/blob/master/public/images/portada.jpg" alt="img" width="500">
-
-*Taller Experimental de Arte y Tecnología*
+LINK: https://afternoon-retreat-48605.herokuapp.com/Taller Experimental de Arte y Tecnología*
 
 ## Acerca de la página 
 Se crea para cubrir la necesidad de organizar el contenido de nuestros cursos.
